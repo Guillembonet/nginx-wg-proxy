@@ -12,7 +12,7 @@ RUN go build -o build/main main.go
 # Copy and run the made binary
 FROM alpine:3.17
 
-RUN apk add --no-cache --update ca-certificates nginx wireguard-tools-wg wireguard-tools
+RUN apk add --no-cache --update ca-certificates nginx wireguard-tools
 
 COPY --from=builder /go/src/github.com/Guillembonet/nginx-wg-proxy/build/main /usr/bin/api
 

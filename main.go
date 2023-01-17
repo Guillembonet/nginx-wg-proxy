@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"os/signal"
 )
 
 var (
@@ -68,4 +69,12 @@ func main() {
 
 	// cleanup the files
 	os.Remove("wg0.conf")
+
+	sig := make(chan os.Signal, 1)
+	signal.Notify(sig, os.Interrupt)
+
+	fmt.Println("Press 'CTRL+C' to exit...")
+	<-sig
+
+	fmt.Println("Exiting...")
 }
