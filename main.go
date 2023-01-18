@@ -11,18 +11,16 @@ import (
 )
 
 var (
-	wireguardIP             = flag.String("wgIP", "", "IP address for the Wireguard interface")
-	wireguardPort           = flag.String("wgPort", "", "Port for the Wireguard interface")
+	wireguardIP             = flag.String("wgIP", "10.0.0.1", "IP address for the Wireguard interface")
+	wireguardPort           = flag.String("wgPort", "52122", "Port for the Wireguard interface")
 	wireguardPrivateKey     = flag.String("wgPrivateKey", "", "Private key for the Wireguard interface")
 	wireguardPeerPublicKey  = flag.String("wgPeerPublicKey", "", "Public key of the peer for the Wireguard tunnel")
 	wireguardPeerEndpoint   = flag.String("wgPeerEndpoint", "", "Endpoint (IP and port) of the peer for the Wireguard tunnel")
-	wireguardPeerAllowedIPs = flag.String("wgPeerAllowedIPs", "", "Allowed IPs for the peer for the Wireguard tunnel")
+	wireguardPeerAllowedIPs = flag.String("wgPeerAllowedIPs", "10.0.0.2/32", "Allowed IPs for the peer for the Wireguard tunnel")
 
-	nginxListenIP   = flag.String("nginxIP", "", "IP address for the nginx to listen on")
-	nginxListenPort = flag.String("nginxPort", "", "Port for the nginx to listen on")
-	nginxServerName = flag.String("nginxServerName", "", "Server name for the nginx server")
-
-	test = flag.String("test", "", "Server name for the nginx server")
+	nginxListenIP   = flag.String("nginxIP", "0.0.0.0", "IP address for the nginx to listen on")
+	nginxListenPort = flag.String("nginxPort", "8080", "Port for the nginx to listen on")
+	nginxServerName = flag.String("nginxServerName", "wg-proxy", "Server name for the nginx server")
 )
 
 func main() {
