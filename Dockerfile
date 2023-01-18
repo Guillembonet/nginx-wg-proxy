@@ -14,6 +14,6 @@ FROM alpine:3.17
 
 RUN apk add --no-cache --update ca-certificates nginx wireguard-tools
 
-COPY --from=builder /go/src/github.com/Guillembonet/nginx-wg-proxy/build/main /usr/bin/api
+COPY --from=builder /go/src/github.com/Guillembonet/nginx-wg-proxy/build/main /usr/bin/nginx-wg-proxy
 
-ENTRYPOINT ["/usr/bin/api"]
+ENTRYPOINT ["/usr/bin/nginx-wg-proxy"]
